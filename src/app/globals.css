@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Alex+Brush&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -24,4 +26,26 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
+}
+
+
+@layer components {
+  .display-first-name {
+    z-index: 2;
+  }
+  .display-last-name {
+    transform: translateY(-1.75rem);
+    z-index: 1;
+    font-weight: 800;
+    letter-spacing: -6px;
+  }
+  .display-role {
+    transform: translateY(-1.75rem);
+  }
+}
+
+@layer utilities {
+  .text-shadow {
+    text-shadow: 3px 4px 6px black;
+  }
 }
