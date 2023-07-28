@@ -1,4 +1,4 @@
-import { Box, Heading, useColorModeValue } from "@chakra-ui/react";
+import { Box, useColorModeValue } from "@chakra-ui/react";
 
 interface DisplayNameProps {
   firstName: string;
