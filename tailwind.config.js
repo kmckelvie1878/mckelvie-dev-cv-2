@@ -9,6 +9,7 @@ module.exports = {
     extend: {
       fontFamily: {
         cursive: ['"Alex Brush"', 'Arial', 'sans'],
+        dinCon: ['"din-condensed"', 'Roboto', 'Arial', 'sans-serif'],
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',

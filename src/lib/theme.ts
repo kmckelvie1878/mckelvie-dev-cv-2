@@ -1,6 +1,11 @@
 import { extendTheme } from "@chakra-ui/react";
 import { StyleFunctionProps, mode } from "@chakra-ui/theme-tools";
 
+const config = {
+  initialColorMode: "dark",
+  useSystemColorMode: true,
+};
+
 const styles = {
   global: (props: StyleFunctionProps | Record<string, any>) => ({
     body: {
@@ -33,6 +38,13 @@ const components = {
       textUnderlineOffset: 3,
     }),
   },
+  Modal: {
+    baseStyle: (props: StyleFunctionProps | Record<string, any>) => ({
+      dialog: {
+        bg: mode("#e2e8f0", "#111827")(props),
+      },
+    }),
+  }
 };
 
 const colors = {
@@ -53,11 +65,18 @@ const colors = {
     500: "#8b5cf6",
     800: "#5b21b6"
   },
-};
-
-const config = {
-  initialColorMode: "dark",
-  useSystemColorMode: true,
+  green: {
+    200: "#23b21c",
+    500: "#23b21c",
+  },
+  yellow: {
+    200: "#f0be2f",
+    500: "#f0be2f",
+  },
+  red: {
+    200: "#df183b",
+    500: "#df183b",
+  }
 };
 
 const theme = extendTheme({

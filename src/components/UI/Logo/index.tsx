@@ -9,8 +9,13 @@ const LogoBox = styled(Link)`
   height: 40px;
   line-height: 20px;
   padding: 10px;
-  img {
-    transition: 200ms ease;
+  .logo-container {
+    position: relative;
+    width: 20px;
+    height: 24.5px;
+    img {
+      transition: 200ms ease;
+    } 
   }
   &:hover img {
     transform: rotate(-15deg);
@@ -21,7 +26,13 @@ const Logo = () => {
   const headLogoImg = `/img/logo${useColorModeValue("-dark", "")}.svg`;
   return (
     <LogoBox href="/">
-      <Image src={headLogoImg} width={20} height={20} alt="Kieran McKelvie" />
+      <div className="logo-container">
+        <Image
+          src={headLogoImg}
+          fill
+          alt="Kieran McKelvie"
+        />
+      </div>
       <Text
         as="span"
         color={useColorModeValue("gray.800", "whiteAlpha.900")}

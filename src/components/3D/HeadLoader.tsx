@@ -2,7 +2,6 @@
 
 import { forwardRef } from 'react'
 import { Box, Spinner } from '@chakra-ui/react'
-import BackgroundText from '../UI/BackgroundText/BackgroundText'
 
 interface MyHeadContainerProps {
   children: React.ReactNode
@@ -30,7 +29,7 @@ export const MyHeadContainer = forwardRef(({ children }: MyHeadContainerProps, r
     h={[280, 380, 480]}
     position="relative"
   >
-    <BackgroundText text="McKelvie" />
+    
     {children}
   </Box>
 ))
