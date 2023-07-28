@@ -26,7 +26,7 @@ const Education = () => {
       className="w-full flex flex-col backdrop-blur-lg"
       borderRadius="lg"
       bg={useColorModeValue("whiteAlpha.300", "whiteAlpha.50")}
-      p={12}
+      p={[6, 12]}
       boxShadow="lg"
       mb={6}
     >

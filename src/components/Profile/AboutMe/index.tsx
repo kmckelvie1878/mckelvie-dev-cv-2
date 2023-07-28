@@ -16,7 +16,7 @@ const AboutMe = () => {
       className="w-full flex flex-col md:flex-row backdrop-blur-lg"
       borderRadius="lg"
       bg={useColorModeValue("whiteAlpha.300", "whiteAlpha.50")}
-      p={12}
+      p={[6, 12]}
       mb={6}
       mt={6}
       boxShadow="lg"
@@ -88,6 +88,7 @@ const AboutMe = () => {
             borderRadius="full"
             src="/img/profile.png"
             alt="Profile Image"
+            mb={[6, 0]}
           />
         </Box>
         <Text mb={6}>
