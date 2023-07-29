@@ -43,6 +43,12 @@ body {
   .display-role {
     transform: translateY(-1.75rem);
   }
+
+  @media (max-width: 768px) {
+    .display-last-name {
+      transform: translateY(-1.25rem);
+    }
+  }
 }
 
 @layer utilities {

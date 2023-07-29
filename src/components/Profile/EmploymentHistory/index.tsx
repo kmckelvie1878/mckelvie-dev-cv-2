@@ -11,7 +11,6 @@ import {
 import { useState } from "react";
 import Image from "next/image";
 import { IoLocationOutline, IoBriefcaseOutline } from "react-icons/io5";
-import styled from "styled-components";
 import { employmentData } from "@/api/works";
 
 const EmploymentHistory = () => {
@@ -47,8 +46,8 @@ const EmploymentHistory = () => {
                 <Image
                   src={colorMode === "dark" ? work.logoLight : work.logoDark}
                   alt={`${work.company} Logo`}
-                  height={71}
                   width={150}
+                  height={71}
                 />
               </Box>
 
