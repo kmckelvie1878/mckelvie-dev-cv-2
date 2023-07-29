@@ -4,13 +4,14 @@ import {
   useColorMode,
   useColorModeValue,
   Icon,
-  Image,
   Text,
   Badge,
   Divider,
 } from "@chakra-ui/react";
 import { useState } from "react";
+import Image from "next/image";
 import { IoLocationOutline, IoBriefcaseOutline } from "react-icons/io5";
+import styled from "styled-components";
 import { employmentData } from "@/api/works";
 
 const EmploymentHistory = () => {
@@ -46,6 +47,7 @@ const EmploymentHistory = () => {
                 <Image
                   src={colorMode === "dark" ? work.logoLight : work.logoDark}
                   alt={`${work.company} Logo`}
+                  height={71}
                   width={150}
                 />
               </Box>
@@ -57,8 +59,22 @@ const EmploymentHistory = () => {
                     {work.date}
                   </Badge>
                 </Heading>
-                <Text><Icon as={IoBriefcaseOutline} mr={1} color={colorMode === 'light' ? "#8b5cf6" : "#2dd4bf"} />{work.role}</Text>
-                <Text><Icon as={IoLocationOutline} mr={1} color={colorMode === 'light' ? "#8b5cf6" : "#2dd4bf"} />{work.location}</Text>
+                <Text>
+                  <Icon
+                    as={IoBriefcaseOutline}
+                    mr={1}
+                    color={colorMode === "light" ? "#8b5cf6" : "#2dd4bf"}
+                  />
+                  {work.role}
+                </Text>
+                <Text>
+                  <Icon
+                    as={IoLocationOutline}
+                    mr={1}
+                    color={colorMode === "light" ? "#8b5cf6" : "#2dd4bf"}
+                  />
+                  {work.location}
+                </Text>
                 {work.skills &&
                   work.skills.map((skill) => (
                     <Badge key={`skill-${skill.id}`} mr={1}>

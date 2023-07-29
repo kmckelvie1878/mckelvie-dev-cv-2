@@ -3,16 +3,21 @@ import {
   Heading,
   SimpleGrid,
   useColorModeValue,
-  Image,
   Flex,
 } from "@chakra-ui/react";
 import RadarChart from "@/components/Charts/RadarChart";
 import BarChart from "@/components/Charts/BarChart";
 import { RadarOptions, BarOptions } from "./data/chartOptions";
 import AttributeModal from "./AttributeModal";
+import Image from "next/image";
+import styled from "styled-components";
+
+const StyledImage = styled(Image)`
+  border-radius: var(--chakra-radii-lg);
+  box-shadow: var(--chakra-shadows-xl);
+`;
 
 const Skills = () => {
-
   const RadarData = {
     labels: [
       "React",
@@ -76,11 +81,11 @@ const Skills = () => {
   return (
     <>
       <SimpleGrid columns={[1, 1, 2]} gap={6} mb={6}>
-        <Image
+        <StyledImage
           src="/img/McKelvie-Guitar.jpg"
           alt="Guitar"
-          borderRadius={"lg"}
-          boxShadow="xl"
+          width={694}
+          height={1233}
         />
         <Box
           className="w-full flex flex-col backdrop-blur-lg"
@@ -100,14 +105,18 @@ const Skills = () => {
           >
             Core Skills
           </Heading>
-          <Flex flexDirection={"column"} justifyContent={"space-between"} className="h-full">
-          <Box>
-            <RadarChart options={RadarOptions} data={RadarData} />
-          </Box>
-          <Box>
-            <BarChart options={BarOptions} data={BarData} height={210} />
-          </Box>
-          <AttributeModal />
+          <Flex
+            flexDirection={"column"}
+            justifyContent={"space-between"}
+            className="h-full"
+          >
+            <Box>
+              <RadarChart options={RadarOptions} data={RadarData} />
+            </Box>
+            <Box>
+              <BarChart options={BarOptions} data={BarData} height={210} />
+            </Box>
+            <AttributeModal />
           </Flex>
         </Box>
       </SimpleGrid>

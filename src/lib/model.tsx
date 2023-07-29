@@ -1,4 +1,5 @@
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
+import { DRACOLoader } from "three/examples/jsm/loaders/DRACOLoader";
 import { Mesh } from "three/src/objects/Mesh";
 
 export function loadGLTFModel(
@@ -9,6 +10,9 @@ export function loadGLTFModel(
   const { receiveShadow, castShadow } = options;
   return new Promise((resolve, reject) => {
     const loader = new GLTFLoader();
+    const dracoLoader = new DRACOLoader(); // Create an instance of the DRACOLoader
+    dracoLoader.setDecoderPath("/3D/draco/"); // Set the path to the Draco decoder (the directory where Draco decoder files are located)
+    loader.setDRACOLoader(dracoLoader); // Set the DRACOLoader instance for the GLTFLoader
 
     loader.load(
       glbPath,

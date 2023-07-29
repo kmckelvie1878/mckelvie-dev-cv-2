@@ -138,7 +138,7 @@ const MyHead = ({}: MyHeadProps) => {
       controls.target = target;
       setControls(controls);
 
-      loadGLTFModel(scene, "/head.glb", {
+      loadGLTFModel(scene, "/3D/head-compressed.glb", {
         receiveShadow: true,
         castShadow: true,
       }).then(() => {

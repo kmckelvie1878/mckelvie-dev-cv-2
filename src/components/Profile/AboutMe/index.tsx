@@ -1,6 +1,19 @@
-import { Box, Heading, Image, Icon, Text, useColorModeValue } from "@chakra-ui/react";
+import { Box, Heading, Icon, Text, useColorModeValue } from "@chakra-ui/react";
 import Link from "next/link";
+import Image from "next/image";
+import styled from "styled-components";
 import { IoLogoGithub, IoLogoLinkedin } from "react-icons/io5";
+
+const ProfileImage = styled(Image)`
+  height: 96px;
+  width: 96px;
+  max-width: 96px;
+  border-color: var(--chakra-colors-whiteAlpha-800);
+  border-width: 2px;
+  border-style: solid;
+  display: inline-block;
+  border-radius: var(--chakra-radii-full);
+`
 
 const AboutMe = () => {
   // function that takes DOB and returns age
@@ -64,6 +77,7 @@ const AboutMe = () => {
                   href="http://linkedin.com/in/kieran-mckelvie"
                   target="_blank"
                   rel="noopener"
+                  aria-label="LinkedIn"
                 >
                   <Icon as={IoLogoLinkedin} />
                 </Link>
@@ -72,26 +86,20 @@ const AboutMe = () => {
                 href="https://github.com/kmckelvie1878"
                 target="_blank"
                 rel="noopener"
+                aria-label="GitHub"
               >
                 <Icon as={IoLogoGithub} />
               </Link>
             </Text>
           </Box>
-          <Image
-            borderColor="whiteAlpha.800"
-            borderWidth={2}
-            borderStyle="solid"
-            maxWidth="100px"
-            w="96px"
-            h="96px"
-            display="inline-block"
-            borderRadius="full"
+          <ProfileImage
+            width={96}
+            height={96}
             src="/img/profile.png"
             alt="Profile Image"
-            mb={[6, 0]}
           />
         </Box>
-        <Text mb={6}>
+        <Text mt={[6, 6, 0]} mb={6}>
           Aspiring Full Stack Developer with a keen eye for captivating User
           Experiences and a passion for clean, efficient code. With a solid
           foundation as a Front End Developer, I am continuously evolving my

@@ -91,6 +91,7 @@ const Carousel: React.FC<CarouselProps> = ({ slides }) => {
             onClick={handleBackClick}
             mr={2}
             disabled={currentSlide === 0}
+            aria-label="Previous Slide"
           >
             <Icon as={IoChevronBackOutline} />
           </Button>
@@ -100,6 +101,7 @@ const Carousel: React.FC<CarouselProps> = ({ slides }) => {
             onClick={handleForwardClick}
             ml={2}
             disabled={currentSlide === slides.length - 1}
+            aria-label="Next Slide"
           >
             <Icon as={IoChevronForwardOutline} />
           </Button>
