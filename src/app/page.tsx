@@ -1,7 +1,7 @@
 "use client";
 
 import { SimpleGrid } from "@chakra-ui/react";
-import DisplayName from "@/components/UI/DisplayName";
+import DisplayName from "@/components/UI/DisplayName/DisplayName";
 import AboutMe from "@/components/Profile/AboutMe";
 import Skills from "@/components/Profile/Skills";
 import EmploymentHistory from "@/components/Profile/EmploymentHistory";

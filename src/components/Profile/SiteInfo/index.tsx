@@ -1,5 +1,5 @@
 import { Box, Heading, Text, useColorModeValue } from "@chakra-ui/react";
-import Carousel from "@/components/UI/Carousel";
+import Carousel from "@/components/UI/Carousel/Carousel";
 
 const SiteInfo = () => {
   const slides: string[] = [

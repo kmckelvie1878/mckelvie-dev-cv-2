@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import Logo from "../../UI/Logo";
+import Logo from "../../UI/Logo/Logo";
 import NextLink from "next/link";
 import {
   Container,
@@ -17,7 +17,7 @@ import {
   ChakraProps,
 } from "@chakra-ui/react";
 import { HamburgerIcon } from "@chakra-ui/icons";
-import ThemeToggle from "../../UI/ThemeToggle";
+import ThemeToggle from "../../UI/ThemeToggle/ThemeToggle";
 
 interface LinkItemProps {
   href: string;

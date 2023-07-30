@@ -9,7 +9,7 @@ import {
   useDisclosure,
 } from "@chakra-ui/react";
 import FutPlayerCardComponent from "../PlayerCard";
-import BasicModal from "@/components/UI/Modal/BasicModal";
+import BasicModal from "@/components/UI/Modal/BasicModal/BasicModal";
 import DoughnutChart from "@/components/Charts/DoughnutChart";
 import ProgressBar from "@/components/Charts/ProgressChart";
 import {

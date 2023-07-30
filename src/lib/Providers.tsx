@@ -9,8 +9,8 @@ import {
 import { AnimatePresence, motion } from "framer-motion";
 import theme from "../lib/theme";
 import Navbar from "@/components/Navigation/NavBar";
-import BackgroundText from "@/components/UI/BackgroundText";
-import Footer from "@/components/UI/Footer";
+import BackgroundText from "@/components/UI/BackgroundText/BackgroundText";
+import Footer from "@/components/UI/Footer/Footer";
 import StyledComponentsRegistry from "../app/registry";
 
 interface ProvidersProps {

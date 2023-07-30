@@ -8,7 +8,7 @@ import {
 import RadarChart from "@/components/Charts/RadarChart";
 import BarChart from "@/components/Charts/BarChart";
 import { RadarOptions, BarOptions } from "./data/chartOptions";
-import AttributeModal from "./AttributeModal";
+import AttributeModal from "./AttributeModal/AttributeModal";
 import Image from "next/image";
 import styled from "styled-components";
 
