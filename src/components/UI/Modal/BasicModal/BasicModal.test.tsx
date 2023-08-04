@@ -1,22 +1,22 @@
-// BasicModal.test.tsx
 import { render, screen, fireEvent } from '@testing-library/react';
 import BasicModal from './BasicModal';
+import React from 'react';
 
 jest.mock('@chakra-ui/react', () => ({
-  Modal: ({ children }) => children,
-  ModalBody: ({ children }) => children,
-  ModalCloseButton: ({ children }) => children,
-  ModalContent: ({ children }) => children,
-  ModalFooter: ({ children }) => children,
-  ModalHeader: ({ children }) => children,
+  Modal: ({ children }: { children: React.ReactNode }) => children,
+  ModalBody: ({ children }: { children: React.ReactNode }) => children,
+  ModalCloseButton: ({ children }: { children: React.ReactNode }) => children,
+  ModalContent: ({ children }: { children: React.ReactNode }) => children,
+  ModalFooter: ({ children }: { children: React.ReactNode }) => children,
+  ModalHeader: ({ children }: { children: React.ReactNode }) => children,
   ModalOverlay: () => null,
-  Button: ({ children, onClick }) => (
+  Button: ({ children, onClick }: { children: React.ReactNode; onClick: () => void }) => (
     <button onClick={onClick}>{children}</button>
   ),
 }));
 jest.mock('framer-motion', () => ({
   motion: {
-    div: ({ children }) => <div>{children}</div>,
+    div: ({ children }: { children: React.ReactNode }) => <div>{children}</div>,
   },
 }));
 
@@ -46,12 +46,7 @@ describe('BasicModal component', () => {
     const isOpen = true;
 
     render(
-      <BasicModal
-        title="Test Modal"
-        isOpen={isOpen}
-        onClose={onClose}
-        size="md"
-      >
+      <BasicModal title="Test Modal" isOpen={isOpen} onClose={onClose} size="md">
         Modal content
       </BasicModal>
     );

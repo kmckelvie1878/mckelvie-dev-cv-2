@@ -1,4 +1,3 @@
-// ThemeToggle.test.js
 import { render, screen, fireEvent } from '@testing-library/react';
 import { useColorMode } from '@chakra-ui/react';
 import ThemeToggle from './ThemeToggle';
@@ -15,7 +14,7 @@ describe('ThemeToggle component', () => {
   test('switches color mode when clicked', () => {
     // Mock the toggleColorMode hook behavior
     const mockToggleColorMode = jest.fn();
-    useColorMode.mockReturnValue({ toggleColorMode: mockToggleColorMode });
+    (useColorMode as jest.Mock).mockReturnValue({ toggleColorMode: mockToggleColorMode });
 
     // Render the component
     render(<ThemeToggle />);

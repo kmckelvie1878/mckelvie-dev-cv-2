@@ -23,15 +23,16 @@ export default function Providers({ children }: ProvidersProps) {
       <ChakraProvider theme={theme}>
         {/* <ColorModeScript initialColorMode={theme.config.initialColorMode} /> */}
         <Navbar />
+        <BackgroundText text="McKelvie" />
         <Box
           as="main"
-          display="flex"
-          flexDirection="column"
-          alignItems="center"
-          justifyContent="flex-start"
+          display="grid"
+          gridTemplateRows={"1fr 69px"}
+          w="100%"
+          h="100%"
+          minHeight="100vh"
         >
-          <BackgroundText text="McKelvie" />
-          <Container maxW={"container.xl"}>
+          <Container maxW={"container.xl"} paddingTop={"60px"}>
             <AnimatePresence mode="wait" initial={true}>
               <motion.div
                 key={"content"}
@@ -44,8 +45,8 @@ export default function Providers({ children }: ProvidersProps) {
               </motion.div>
             </AnimatePresence>
           </Container>
+          <Footer />
         </Box>
-        <Footer />
       </ChakraProvider>
     </StyledComponentsRegistry>
   );

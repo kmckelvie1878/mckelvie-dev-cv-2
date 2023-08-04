@@ -2,7 +2,7 @@ import { Text } from "@chakra-ui/react";
 import React from "react";
 import styled from "styled-components";
 
-interface FutPlayerCardProps {
+export interface FutPlayerCardProps {
   rating: number;
   position: string;
   name: string;

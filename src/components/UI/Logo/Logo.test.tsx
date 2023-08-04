@@ -11,7 +11,7 @@ describe("Logo component", () => {
     );
 
     const logoContainer = screen.getByRole("link");
-    const logoImg = screen.getByAltText("Kieran McKelvie");
+    const logoImg = screen.getByAltText("Kieran McKelvie") as HTMLImageElement;
     const logoText = screen.getByText("McKelvie.dev");
 
     expect(logoContainer).toBeInTheDocument();

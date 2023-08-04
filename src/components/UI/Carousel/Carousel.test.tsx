@@ -32,7 +32,9 @@ describe("Carousel component", () => {
     render(<Carousel slides={slides} />);
     const secondSlideIndicator = screen.getAllByRole("button")[1]; // Second slide indicator
 
-    fireEvent.click(secondSlideIndicator);
+    act(() => {
+      fireEvent.click(secondSlideIndicator);
+    });
 
     const secondSlide = screen.getByText("Slide 2");
     expect(secondSlide).toBeInTheDocument();
@@ -42,7 +44,9 @@ describe("Carousel component", () => {
     render(<Carousel slides={slides} />);
     const previousSlideButton = screen.getByLabelText("Previous Slide");
 
-    fireEvent.click(previousSlideButton);
+    act(() => {
+      fireEvent.click(previousSlideButton);
+    });
 
     const lastSlide = screen.getByText("Slide 3");
     expect(lastSlide).toBeInTheDocument();
@@ -52,7 +56,9 @@ describe("Carousel component", () => {
     render(<Carousel slides={slides} />);
     const nextSlideButton = screen.getByLabelText("Next Slide");
 
-    fireEvent.click(nextSlideButton);
+    act(() => {
+      fireEvent.click(nextSlideButton);
+    });
 
     const secondSlide = screen.getByText("Slide 2");
     expect(secondSlide).toBeInTheDocument();

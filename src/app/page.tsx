@@ -1,22 +1,24 @@
-"use client";
-
-import { SimpleGrid } from "@chakra-ui/react";
-import DisplayName from "@/components/UI/DisplayName/DisplayName";
-import AboutMe from "@/components/Profile/AboutMe";
-import Skills from "@/components/Profile/Skills";
-import EmploymentHistory from "@/components/Profile/EmploymentHistory";
-import Logos from "@/components/Technologies/Logos";
-import Education from "@/components/Profile/Education";
-import SiteInfo from "@/components/Profile/SiteInfo";
 import dynamic from "next/dynamic";
 import MyHeadLoader from "@/components/3D/HeadLoader";
+
+import DisplayName from "@/components/UI/DisplayName/DisplayName";
+import AboutMe from "@/components/Profile/AboutMe/AboutMe";
+import Skills from "@/components/Profile/Skills/Skills";
+import EmploymentHistory from "@/components/Profile/EmploymentHistory/EmploymentHistory";
+import FurtherInfo from "@/components/Profile/FurtherInfo/FurtherInfo";
+import Logos from "@/components/Technologies/Logos/Logos";
+
+import fetchEmployment from "@/api/employment";
 
 const LazyMyHead = dynamic(() => import("../components/3D/MyHead"), {
   ssr: false,
   loading: () => <MyHeadLoader />,
 });
 
-export default function Home() {
+export default async function Home() {
+
+  const employmentHistoryData = await fetchEmployment();
+  
   return (
     <>
       <LazyMyHead />
@@ -27,11 +29,8 @@ export default function Home() {
       />
       <AboutMe />
       <Skills />
-      <EmploymentHistory />
-      <SimpleGrid columns={[1, 1, 2]} spacing={6} mb={12}>
-        <Education />
-        <SiteInfo />
-      </SimpleGrid>
+      <EmploymentHistory employmentHistoryData={employmentHistoryData} />
+      <FurtherInfo />
       <Logos />
     </>
   );

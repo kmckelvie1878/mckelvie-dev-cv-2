@@ -1,3 +1,5 @@
+"use client";
+
 import { Box, Icon } from "@chakra-ui/react";
 import {
   IoLogoHtml5,
