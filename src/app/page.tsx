@@ -16,10 +16,10 @@ const LazyMyHead = dynamic(() => import("../components/3D/MyHead"), {
   loading: () => <MyHeadLoader />,
 });
 
-const LazyParticles = dynamic(() => import("../components/3D/Particles/Particles"), {
-  ssr: false,
-  loading: () => <p>Loading...</p>,
-});
+// const LazyParticles = dynamic(() => import("../components/3D/Particles/Particles"), {
+//   ssr: false,
+//   loading: () => <p>Loading...</p>,
+// });
 
 export default async function Home() {
 
@@ -29,7 +29,7 @@ export default async function Home() {
   return (
     <>
       <LazyMyHead />
-      <LazyParticles />
+      {/* <LazyParticles /> */}
       <DisplayName
         firstName="Kieran"
         lastName="McKelvie"
