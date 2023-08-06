@@ -38,7 +38,9 @@ model Education {
   id          Int      @id @default(autoincrement())
   school      String
   degree      String
-  field       String
+  field       String?
+  location    String?
+  grade       String?
   startDate   DateTime
   endDate     DateTime?
   createdAt   DateTime @default(now())

@@ -10,27 +10,17 @@ import {
   Badge,
   Divider,
 } from "@chakra-ui/react";
-import { useEffect, useState } from "react";
 import Image from "next/image";
 import { IoLocationOutline, IoBriefcaseOutline } from "react-icons/io5";
-
-import { employmentData } from "@/api/works";
-import { Prisma } from "@prisma/client";
 
 interface EmploymentHistoryProps {
   employmentHistoryData: any;
 }
 
-interface Props {
-  employment: Prisma.EmploymentSelect[];
-}
-
 const EmploymentHistory = ({
   employmentHistoryData,
 }: EmploymentHistoryProps) => {
-  const [employmentLength] = useState(employmentHistoryData.length);
   const { colorMode } = useColorMode();
-  // console.log(employmentHistoryData, "in component");
 
   const sortedEmploymentHistoryData = employmentHistoryData.sort(
     (
@@ -121,7 +111,7 @@ const EmploymentHistory = ({
                   ))}
               </Box>
             </Box>
-            {index !== employmentLength - 1 && <Divider mt={3} mb={3} />}
+            {index !== employmentHistoryData.length - 1 && <Divider mt={3} mb={3} />}
           </Box>
         ))}
       </Box>

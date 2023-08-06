@@ -9,19 +9,27 @@ import FurtherInfo from "@/components/Profile/FurtherInfo/FurtherInfo";
 import Logos from "@/components/Technologies/Logos/Logos";
 
 import fetchEmployment from "@/api/employment";
+import fetchEducation from "@/api/education";
 
 const LazyMyHead = dynamic(() => import("../components/3D/MyHead"), {
   ssr: false,
   loading: () => <MyHeadLoader />,
 });
 
+const LazyParticles = dynamic(() => import("../components/3D/Particles/Particles"), {
+  ssr: false,
+  loading: () => <p>Loading...</p>,
+});
+
 export default async function Home() {
 
   const employmentHistoryData = await fetchEmployment();
+  const educationHistoryData = await fetchEducation();
   
   return (
     <>
       <LazyMyHead />
+      <LazyParticles />
       <DisplayName
         firstName="Kieran"
         lastName="McKelvie"
@@ -30,7 +38,7 @@ export default async function Home() {
       <AboutMe />
       <Skills />
       <EmploymentHistory employmentHistoryData={employmentHistoryData} />
-      <FurtherInfo />
+      <FurtherInfo educationHistoryData={educationHistoryData} />
       <Logos />
     </>
   );
