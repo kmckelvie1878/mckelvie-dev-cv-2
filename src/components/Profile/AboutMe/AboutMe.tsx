@@ -15,7 +15,7 @@ const ProfileImage = styled(Image)`
   border-style: solid;
   display: inline-block;
   border-radius: var(--chakra-radii-full);
-`
+`;
 
 const AboutMe = () => {
   // function that takes DOB and returns age
@@ -76,14 +76,13 @@ const AboutMe = () => {
                 ·
               </span>{" "}
               <Link
-                  href="http://linkedin.com/in/kieran-mckelvie"
-                  target="_blank"
-                  rel="noopener"
-                  aria-label="LinkedIn"
-                >
-                  <Icon as={IoLogoLinkedin} />
-                </Link>
-                {" "}
+                href="http://linkedin.com/in/kieran-mckelvie"
+                target="_blank"
+                rel="noopener"
+                aria-label="LinkedIn"
+              >
+                <Icon as={IoLogoLinkedin} />
+              </Link>{" "}
               <Link
                 href="https://github.com/kmckelvie1878"
                 target="_blank"
@@ -102,18 +101,16 @@ const AboutMe = () => {
           />
         </Box>
         <Text mt={[6, 6, 0]} mb={6}>
-          Aspiring Full Stack Developer with a keen eye for captivating User
-          Experiences and a passion for clean, efficient code. With a solid
-          foundation as a Front End Developer, I am continuously evolving my
-          skills. Currently, I work as an App Developer at Interactive Investor,
-          where I contribute to crafting seamless user interfaces and engaging
-          interactions.
+          Accomplished Front End Engineer possessing leadership attributes &
+          management experience, with a keen eye for captivating User
+          Experiences and a passion for clean, readable code. Always looking to
+          evolve my skills.
         </Text>
         <Text mb={6}>
-          Beyond the realm of coding, I find inspiration in music. An avid
-          musician, I am well-versed in playing multiple instruments and have
-          set up my own recording studio at home. Additionally, I proudly hold a
-          season ticket at my beloved Everton Football Club.
+          Beyond coding, I am an avid musician, well-versed in playing multiple
+          instruments and have set up my own recording studio at home. I also
+          play for a local amateur football team and I proudly hold a season
+          ticket at my beloved Everton Football Club.
         </Text>
         <Text>
           My unwavering dedication to excellence and my diverse interests make
