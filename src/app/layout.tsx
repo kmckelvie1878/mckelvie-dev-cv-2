@@ -18,14 +18,20 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <link rel='icon' href='/favicon.ico'/>
-        <link rel="preconnect" href="https://fonts.googleapis.com" cross-origin="true" />
-        <link rel="preconnect" href="https://use.typekit.net" cross-origin="true" />
+        <link rel="icon" href="/favicon.ico" />
+        <link
+          rel="preconnect"
+          href="https://fonts.googleapis.com"
+          cross-origin="true"
+        />
+        <link
+          rel="preconnect"
+          href="https://use.typekit.net"
+          cross-origin="true"
+        />
       </head>
       <body className={inter.className}>
-        <Providers>
-          {children}
-        </Providers>
+        <Providers>{children}</Providers>
       </body>
     </html>
   );

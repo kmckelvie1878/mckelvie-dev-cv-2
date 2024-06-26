@@ -1,23 +1,12 @@
 "use client";
 
-import {
-  Box,
-  Heading,
-  SimpleGrid,
-  useColorModeValue,
-  Flex,
-} from "@chakra-ui/react";
+import { Heading, SimpleGrid, useColorModeValue } from "@chakra-ui/react";
 import RadarChart from "@/components/Charts/RadarChart";
 import BarChart from "@/components/Charts/BarChart";
 import { RadarOptions, BarOptions } from "./data/chartOptions";
 import AttributeModal from "./AttributeModal/AttributeModal";
 import Image from "next/image";
-import styled from "styled-components";
-
-const StyledImage = styled(Image)`
-  border-radius: var(--chakra-radii-lg);
-  box-shadow: var(--chakra-shadows-xl);
-`;
+import StyledBox from "@/components/UI/StyledBox/StyledBox";
 
 const Skills = () => {
   const RadarData = {
@@ -50,16 +39,16 @@ const Skills = () => {
 
   const BarData = {
     labels: [
-      "HTML5",
-      "CSS3 / SASS / SCSS",
+      "HTML",
+      "CSS",
       "React",
       "TypeScript",
+      "JavaScript",
       "Next",
-      "JavaScript (ES6)",
-      "Jest / React Testing Library",
+      "React Native",
+      "Prisma",
       "GraphQL / Apollo",
       "AWS / DynamoDB",
-      "React Native",
     ],
     datasets: [
       {
@@ -75,7 +64,7 @@ const Skills = () => {
         color: "#888",
         categoryPercentage: 0.5,
         barPercentage: 1.0,
-        data: [10, 10, 9, 8, 7, 7, 5, 5, 4, 3],
+        data: [10, 10, 9, 8, 7, 7, 6, 4, 3, 2],
       },
     ],
   };
@@ -83,19 +72,14 @@ const Skills = () => {
   return (
     <>
       <SimpleGrid columns={[1, 1, 2]} gap={6} mb={6}>
-        <StyledImage
+        <Image
           src="/img/McKelvie-Guitar.jpg"
           alt="Guitar"
           width={694}
           height={1233}
+          className="rounded-lg shadow-lg"
         />
-        <Box
-          className="w-full flex flex-col backdrop-blur-lg"
-          borderRadius="lg"
-          bg={useColorModeValue("whiteAlpha.300", "whiteAlpha.50")}
-          p={[6, 12]}
-          boxShadow="lg"
-        >
+        <StyledBox>
           <Heading
             as="h2"
             variant="page-title"
@@ -107,20 +91,16 @@ const Skills = () => {
           >
             Core Skills
           </Heading>
-          <Flex
-            flexDirection={"column"}
-            justifyContent={"space-between"}
-            className="h-full"
-          >
-            <Box>
+          <div className="h-full flex flex-col justify-between">
+            <div>
               <RadarChart options={RadarOptions} data={RadarData} />
-            </Box>
-            <Box>
+            </div>
+            <div>
               <BarChart options={BarOptions} data={BarData} height={210} />
-            </Box>
+            </div>
             <AttributeModal />
-          </Flex>
-        </Box>
+          </div>
+        </StyledBox>
       </SimpleGrid>
     </>
   );

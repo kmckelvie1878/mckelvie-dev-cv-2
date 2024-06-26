@@ -1,7 +1,8 @@
 "use client";
 
-import { Box, Heading, Text, useColorModeValue } from "@chakra-ui/react";
+import { Box, Heading, useColorModeValue } from "@chakra-ui/react";
 import Carousel from "@/components/UI/Carousel/Carousel";
+import StyledBox from "@/components/UI/StyledBox/StyledBox";
 
 const SiteInfo = () => {
   const slides: string[] = [
@@ -12,15 +13,7 @@ const SiteInfo = () => {
     "To ensure optimal performance and seamless deployment, the website is hosted on Vercel, a leading platform for serverless deployment. Continuous integration and continuous deployment (CI/CD) have been set up via GitHub, enabling automated updates and hassle-free deployment, ensuring that my website is always up to date with the latest changes and improvements.",
   ];
   return (
-    <Box
-      className="w-full flex flex-col backdrop-blur-lg"
-      borderRadius="lg"
-      bg={useColorModeValue("whiteAlpha.300", "whiteAlpha.50")}
-      p={[6, 12]}
-      boxShadow="lg"
-      mb={6}
-      minHeight={564}
-    >
+    <StyledBox marginBottom minHeight={564}>
       <Heading
         as="h2"
         variant="page-title"
@@ -33,7 +26,7 @@ const SiteInfo = () => {
         About This Site
       </Heading>
       <Carousel slides={slides} />
-    </Box>
+    </StyledBox>
   );
 };
 

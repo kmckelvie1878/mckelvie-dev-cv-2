@@ -150,23 +150,25 @@ const MyHead = ({}: MyHeadProps) => {
       let frame = 0;
       const animate = () => {
         req = requestAnimationFrame(animate);
-      
+
         frame = frame <= 100 ? frame + 1 : frame;
-      
+
         if (frame <= 100) {
           const p = initialCameraPosition;
           const rotSpeed = -easeOutCirc(frame / 120) * Math.PI * 20;
-      
+
           camera.position.y = 2;
-          camera.position.x = p.x * Math.cos(rotSpeed) + p.z * Math.sin(rotSpeed);
-          camera.position.z = p.z * Math.cos(rotSpeed) - p.x * Math.sin(rotSpeed);
+          camera.position.x =
+            p.x * Math.cos(rotSpeed) + p.z * Math.sin(rotSpeed);
+          camera.position.z =
+            p.z * Math.cos(rotSpeed) - p.x * Math.sin(rotSpeed);
           camera.lookAt(target);
-      
+
           // The spotlights' positions are set during initialization, so they remain stationary.
         } else {
           controls.update();
         }
-      
+
         renderer.render(scene, camera);
       };
 

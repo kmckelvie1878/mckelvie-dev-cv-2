@@ -1,10 +1,11 @@
 "use client";
 
-import { Box, Heading, Icon, Text, useColorModeValue } from "@chakra-ui/react";
+import { Heading, Icon, Text, useColorModeValue } from "@chakra-ui/react";
 import Link from "next/link";
 import Image from "next/image";
 import styled from "styled-components";
 import { IoLogoGithub, IoLogoLinkedin } from "react-icons/io5";
+import StyledBox from "@/components/UI/StyledBox/StyledBox";
 
 const ProfileImage = styled(Image)`
   height: 96px;
@@ -15,7 +16,7 @@ const ProfileImage = styled(Image)`
   border-style: solid;
   display: inline-block;
   border-radius: var(--chakra-radii-full);
-`
+`;
 
 const AboutMe = () => {
   // function that takes DOB and returns age
@@ -27,18 +28,10 @@ const AboutMe = () => {
   }
 
   return (
-    <Box
-      className="w-full flex flex-col md:flex-row backdrop-blur-lg"
-      borderRadius="lg"
-      bg={useColorModeValue("whiteAlpha.300", "whiteAlpha.50")}
-      p={[6, 12]}
-      mb={6}
-      mt={6}
-      boxShadow="lg"
-    >
-      <Box className="w-full" mb={6}>
-        <Box className="flex w-full flex-col md:flex-row justify-between">
-          <Box>
+    <StyledBox marginBottom>
+      <div className="w-full mb-6">
+        <div className="flex w-full flex-col md:flex-row justify-between">
+          <div>
             <Heading
               as="h1"
               variant="page-title"
@@ -76,14 +69,13 @@ const AboutMe = () => {
                 ·
               </span>{" "}
               <Link
-                  href="http://linkedin.com/in/kieran-mckelvie"
-                  target="_blank"
-                  rel="noopener"
-                  aria-label="LinkedIn"
-                >
-                  <Icon as={IoLogoLinkedin} />
-                </Link>
-                {" "}
+                href="http://linkedin.com/in/kieran-mckelvie"
+                target="_blank"
+                rel="noopener"
+                aria-label="LinkedIn"
+              >
+                <Icon as={IoLogoLinkedin} />
+              </Link>{" "}
               <Link
                 href="https://github.com/kmckelvie1878"
                 target="_blank"
@@ -93,27 +85,25 @@ const AboutMe = () => {
                 <Icon as={IoLogoGithub} />
               </Link>
             </Text>
-          </Box>
+          </div>
           <ProfileImage
             width={96}
             height={96}
             src="/img/profile.png"
             alt="Profile Image"
           />
-        </Box>
+        </div>
         <Text mt={[6, 6, 0]} mb={6}>
-          Aspiring Full Stack Developer with a keen eye for captivating User
-          Experiences and a passion for clean, efficient code. With a solid
-          foundation as a Front End Developer, I am continuously evolving my
-          skills. Currently, I work as an App Developer at Interactive Investor,
-          where I contribute to crafting seamless user interfaces and engaging
-          interactions.
+          Accomplished Front End Engineer possessing leadership attributes &
+          management experience, with a keen eye for captivating User
+          Experiences and a passion for clean, readable code. Always looking to
+          evolve my skills.
         </Text>
         <Text mb={6}>
-          Beyond the realm of coding, I find inspiration in music. An avid
-          musician, I am well-versed in playing multiple instruments and have
-          set up my own recording studio at home. Additionally, I proudly hold a
-          season ticket at my beloved Everton Football Club.
+          Beyond coding, I am an avid musician, well-versed in playing multiple
+          instruments and have set up my own recording studio at home. I also
+          play for a local amateur football team and I proudly hold a season
+          ticket at my beloved Everton Football Club.
         </Text>
         <Text>
           My unwavering dedication to excellence and my diverse interests make
@@ -122,8 +112,8 @@ const AboutMe = () => {
           meaningful projects that make a lasting impact. Let&apos;s collaborate
           and create something extraordinary together.
         </Text>
-      </Box>
-    </Box>
+      </div>
+    </StyledBox>
   );
 };
 
