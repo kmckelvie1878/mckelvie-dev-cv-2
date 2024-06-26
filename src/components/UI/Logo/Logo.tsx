@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { Text, useColorModeValue } from "@chakra-ui/react";
+import { useColorModeValue } from "@chakra-ui/react";
 import styled from "styled-components";
 
 const LogoBox = styled(Link)`
@@ -15,7 +15,7 @@ const LogoBox = styled(Link)`
     height: 24.5px;
     img {
       transition: 200ms ease;
-    } 
+    }
   }
   &:hover img {
     transform: rotate(-15deg);
@@ -27,20 +27,16 @@ const Logo = () => {
   return (
     <LogoBox href="/">
       <div className="logo-container">
-        <Image
-          src={headLogoImg}
-          fill
-          alt="Kieran McKelvie"
-        />
+        <Image src={headLogoImg} fill alt="McKelvie.dev" />
       </div>
-      <Text
-        as="span"
-        color={useColorModeValue("gray.800", "whiteAlpha.900")}
-        ml={2}
-        fontSize="17"
+      <span
+        className={`ml-2 text-[17px] ${useColorModeValue(
+          "text-gray-800",
+          "text-white"
+        )}`}
       >
         McKelvie.dev
-      </Text>
+      </span>
     </LogoBox>
   );
 };

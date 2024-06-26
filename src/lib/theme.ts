@@ -34,8 +34,9 @@ const components = {
   },
   Link: {
     baseStyle: (props: StyleFunctionProps | Record<string, any>) => ({
-      color: mode("#3d7aed", "#ff63c3")(props),
+      color: mode("#14b8a6", "#8b5cf6")(props),
       textUnderlineOffset: 3,
+      "&:hover": { textDecoration: "none" },
     }),
   },
   Modal: {
@@ -44,7 +45,7 @@ const components = {
         bg: mode("#e2e8f0", "#111827")(props),
       },
     }),
-  }
+  },
 };
 
 const colors = {
@@ -55,7 +56,7 @@ const colors = {
     200: "#99f6e4",
     400: "#2dd4bf",
     500: "#14b8a6",
-    800: "#115e59"
+    800: "#115e59",
   },
   twViolet: {
     50: "#f5f3ff",
@@ -63,7 +64,7 @@ const colors = {
     200: "#ddd6fe",
     400: "#a78bfa",
     500: "#8b5cf6",
-    800: "#5b21b6"
+    800: "#5b21b6",
   },
   green: {
     200: "#23b21c",
@@ -76,7 +77,7 @@ const colors = {
   red: {
     200: "#df183b",
     500: "#df183b",
-  }
+  },
 };
 
 const theme = extendTheme({

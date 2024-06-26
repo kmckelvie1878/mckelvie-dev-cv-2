@@ -3,7 +3,6 @@ import {
   AlertDescription,
   AlertIcon,
   AlertTitle,
-  Box,
   Button,
   SimpleGrid,
   useDisclosure,
@@ -31,8 +30,8 @@ const AttributeModal = () => {
         onClose={onClose}
         size={"6xl"}
       >
-        <Box className="flex flex-col md:flex-row items-center">
-          <Box>
+        <div className="flex flex-col md:flex-row items-center">
+          <div>
             <FutPlayerCardComponent
               rating={89}
               position="DEV"
@@ -40,11 +39,11 @@ const AttributeModal = () => {
               statsLeft={statsLeft}
               statsRight={statsRight}
             />
-          </Box>
-          <Box paddingX={6} className="w-full">
+          </div>
+          <div className="w-full px-6">
             <SimpleGrid columns={[2, 3, 6]} gap={6}>
               {attributeData.map((category) => (
-                <Box key={category.label}>
+                <div key={category.label}>
                   <DoughnutChart
                     label={category.label}
                     score={calculateScore(category.progressBars)}
@@ -56,14 +55,14 @@ const AttributeModal = () => {
                       label={progressBar.label}
                     />
                   ))}
-                </Box>
+                </div>
               ))}
             </SimpleGrid>
-          </Box>
-        </Box>
+          </div>
+        </div>
         <Alert status="info" borderRadius="lg" mt={6} variant="left-accent">
           <AlertIcon />
-          <Box>
+          <div>
             <AlertTitle>Disclaimer:</AlertTitle>
             <AlertDescription fontSize="sm">
               I have no affiliation with EA Sports, the FIFA / EA FC franchise,
@@ -71,7 +70,7 @@ const AttributeModal = () => {
               demonstrates my creative and technical skills, and is not intended
               for commercial use.
             </AlertDescription>
-          </Box>
+          </div>
         </Alert>
       </BasicModal>
     </>

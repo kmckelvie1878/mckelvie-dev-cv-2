@@ -6,7 +6,7 @@ import SiteInfo from "@/components/Profile/SiteInfo/SiteInfo";
 
 const FurtherInfo = (educationHistoryData: any) => {
   return (
-    <SimpleGrid columns={[1, 1, 2]} spacing={6} mb={12}>
+    <SimpleGrid columns={[1, 1, 2]} spacing={6} mb={6}>
       <Education educationHistoryData={educationHistoryData} />
       <SiteInfo />
     </SimpleGrid>

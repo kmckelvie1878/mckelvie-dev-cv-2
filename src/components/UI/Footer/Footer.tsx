@@ -1,12 +1,10 @@
 "use client";
 
-import { Box } from "@chakra-ui/react";
-
 const Footer = () => {
   return (
-    <Box className="text-center" opacity={0.8} fontSize="sm" mb={12}>
+    <div className="text-center text-sm mb-12 opacity-80">
       &copy; {new Date().getFullYear()} Kieran McKelvie. All Rights Reserved.
-    </Box>
+    </div>
   );
 };
 

@@ -20,11 +20,14 @@ const DisplayName = ({ firstName, lastName, jobTitle }: DisplayNameProps) => {
         >
           {firstName}
         </span>
-        <span className={`display-last-name text-6xl md:text-8xl font-bold ${useColorModeValue(
+        <span
+          className={`display-last-name text-6xl md:text-8xl font-bold ${useColorModeValue(
             "text-violet-500",
             "text-teal-400"
-          )}`}>{lastName}</span>
-        {/* <span className={`display-last-name text-6xl md:text-8xl font-bold from-rose-900 to-cyan-500 text-transparent bg-clip-text bg-gradient-to-r`}>{lastName}</span> */}
+          )}`}
+        >
+          {lastName}
+        </span>
         <span className={`text-right display-role`}>{jobTitle}</span>
       </Box>
     </Box>

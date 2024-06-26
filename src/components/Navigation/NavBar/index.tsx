@@ -15,9 +15,12 @@ import {
   IconButton,
   useColorModeValue,
   ChakraProps,
+  Text,
 } from "@chakra-ui/react";
 import { HamburgerIcon } from "@chakra-ui/icons";
 import ThemeToggle from "../../UI/ThemeToggle/ThemeToggle";
+import { motion } from "framer-motion";
+import { usePathname } from "next/navigation";
 
 interface LinkItemProps {
   href: string;
@@ -26,25 +29,34 @@ interface LinkItemProps {
   children: React.ReactNode;
 }
 
+const LinkItems = [
+  { name: "Portfolio", href: "/portfolio" },
+  { name: "Contact", href: "/contact" },
+];
+
 const LinkItem = ({ href, path, children, ...props }: LinkItemProps) => {
   const active = path === href;
-  const inactiveColor = useColorModeValue("gray200", "whiteAlpha.900");
+  const linkColor = useColorModeValue("gray200", "whiteAlpha.900");
+  const linkUnderlineColor = useColorModeValue("bg-gray-500", "bg-white");
   return (
-    <NextLink href={href}>
-      <Link
-        p={2}
-        bg={active ? "glassTeal" : undefined}
-        color={active ? "#202023" : inactiveColor}
-        {...props}
-      >
-        {children}
-      </Link>
-    </NextLink>
+    <div className="relative">
+      <NextLink href={href}>
+        <Text p={2} color={linkColor} {...props}>
+          {children}
+        </Text>
+      </NextLink>
+      {active && (
+        <motion.span
+          layoutId="underline"
+          className={`absolute left-0 top-full block h-[1px] w-full ${linkUnderlineColor}`}
+        />
+      )}
+    </div>
   );
 };
 
 const Navbar = (props: any) => {
-  const { path } = props;
+  const pathname = usePathname();
   return (
     <Box
       position="fixed"
@@ -52,7 +64,7 @@ const Navbar = (props: any) => {
       w="100%"
       bg={useColorModeValue("#ffffff40", "#09090b20")}
       className={"backdrop-blur-sm"}
-      zIndex={100}
+      zIndex={5}
       {...props}
     >
       <Container
@@ -65,7 +77,7 @@ const Navbar = (props: any) => {
         <Flex align="center" mr={5} width={160}>
           <Logo />
         </Flex>
-        <Stack
+        {/* <Stack
           direction={{ base: "column", md: "row" }}
           display={{ base: "none", md: "flex" }}
           width={{ base: "full", md: "auto" }}
@@ -73,10 +85,12 @@ const Navbar = (props: any) => {
           flexGrow={1}
           mt={{ base: 4, md: 0 }}
         >
-          {/* <LinkItem href="/portfolio" path={path}>
-            Portfolio
-          </LinkItem> */}
-        </Stack>
+          {LinkItems.map((link) => (
+            <LinkItem key={link.name} href={link.href} path={pathname}>
+              {link.name}
+            </LinkItem>
+          ))}
+        </Stack> */}
         <Box flex={1} display="flex" justifyContent="flex-end">
           <ThemeToggle />
           {/* <Box ml={2} display={{ base: "inline-block", md: "none" }}>

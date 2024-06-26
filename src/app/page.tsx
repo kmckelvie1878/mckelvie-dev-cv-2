@@ -16,11 +16,6 @@ const LazyMyHead = dynamic(() => import("../components/3D/MyHead"), {
   loading: () => <MyHeadLoader />,
 });
 
-// const LazyParticles = dynamic(() => import("../components/3D/Particles/Particles"), {
-//   ssr: false,
-//   loading: () => <p>Loading...</p>,
-// });
-
 export default async function Home() {
 
   const employmentHistoryData = await fetchEmployment();
@@ -29,7 +24,6 @@ export default async function Home() {
   return (
     <>
       <LazyMyHead />
-      {/* <LazyParticles /> */}
       <DisplayName
         firstName="Kieran"
         lastName="McKelvie"
