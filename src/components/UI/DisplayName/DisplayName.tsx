@@ -11,7 +11,7 @@ interface DisplayNameProps {
 const DisplayName = ({ firstName, lastName, jobTitle }: DisplayNameProps) => {
   return (
     <Box className="w-full flex justify-center">
-      <Box className="w-fit flex flex-col">
+      <Box className="w-fit flex flex-col scale-110 md:scale-75 lg:scale-125 xl:scale-150">
         <span
           className={`display-first-name text-4xl md:text-6xl font-cursive ${useColorModeValue(
             "text-neutral-900",
@@ -20,11 +20,14 @@ const DisplayName = ({ firstName, lastName, jobTitle }: DisplayNameProps) => {
         >
           {firstName}
         </span>
-        <span className={`display-last-name text-6xl md:text-8xl font-bold ${useColorModeValue(
+        <span
+          className={`display-last-name text-6xl md:text-8xl font-bold ${useColorModeValue(
             "text-violet-500",
             "text-teal-400"
-          )}`}>{lastName}</span>
-        {/* <span className={`display-last-name text-6xl md:text-8xl font-bold from-rose-900 to-cyan-500 text-transparent bg-clip-text bg-gradient-to-r`}>{lastName}</span> */}
+          )}`}
+        >
+          {lastName}
+        </span>
         <span className={`text-right display-role`}>{jobTitle}</span>
       </Box>
     </Box>

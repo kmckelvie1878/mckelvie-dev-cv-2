@@ -10,8 +10,12 @@
     "test": "jest"
   },
   "dependencies": {
-    "@chakra-ui/icons": "^2.0.19",
-    "@chakra-ui/react": "^2.7.1",
+    "@chakra-ui/checkbox": "^2.3.2",
+    "@chakra-ui/icons": "2.0.19",
+    "@chakra-ui/react": "^2.8.2",
+    "@chakra-ui/system": "^2.6.2",
+    "@emotion/react": "^11.0.0",
+    "@emotion/styled": "^11.0.0",
     "@prisma/client": "^5.1.1",
     "@types/node": "20.4.2",
     "@types/react": "18.2.15",
@@ -30,11 +34,9 @@
     "react-dom": "18.2.0",
     "react-icons": "^4.10.1",
     "react-router-dom": "^6.14.2",
-    "react-tsparticles": "^2.12.1",
     "styled-components": "^6.0.4",
     "tailwindcss": "3.3.3",
     "three": "^0.154.0",
-    "tsparticles": "^2.12.0",
     "typescript": "5.1.6"
   },
   "devDependencies": {
