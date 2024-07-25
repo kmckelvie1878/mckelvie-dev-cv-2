@@ -1,14 +1,17 @@
 import dynamic from "next/dynamic";
-import MyHeadLoader from "@/components/3D/HeadLoader";
+
+import fetchEmployment from "@/api/employment";
+import fetchEducation from "@/api/education";
+
 import { Grid, Box } from "@chakra-ui/react";
+
+import MyHeadLoader from "@/components/3D/HeadLoader";
 import DisplayName from "@/components/UI/DisplayName/DisplayName";
 import AboutMe from "@/components/Profile/AboutMe/AboutMe";
 import Skills from "@/components/Profile/Skills/Skills";
 import EmploymentHistory from "@/components/Profile/EmploymentHistory/EmploymentHistory";
 import FurtherInfo from "@/components/Profile/FurtherInfo/FurtherInfo";
 import Logos from "@/components/Technologies/Logos/Logos";
-import fetchEmployment from "@/api/employment";
-import fetchEducation from "@/api/education";
 
 const LazyMyHead = dynamic(() => import("../components/3D/MyHead"), {
   ssr: false,
@@ -35,7 +38,7 @@ export default async function Home() {
         </Box>
         <Box order={{ base: 1, md: 2 }}>
           <LazyMyHead />
-        </Box>{" "}
+        </Box>
       </Grid>
       <AboutMe />
       <Skills />

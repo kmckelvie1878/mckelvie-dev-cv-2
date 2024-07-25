@@ -104,7 +104,7 @@ const AboutMe = () => {
           Accomplished Front End Engineer possessing leadership attributes &
           management experience, with a keen eye for captivating User
           Experiences and a passion for clean, readable code. Always looking to
-          evolve my skills.
+          evolve my skills in my quest to go Full Stack.
         </Text>
         <Text mb={6}>
           Beyond coding, I am an avid musician, well-versed in playing multiple
