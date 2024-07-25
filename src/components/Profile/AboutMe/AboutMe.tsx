@@ -116,8 +116,7 @@ const AboutMe = () => {
           My unwavering dedication to excellence and my diverse interests make
           me a driven and well-rounded individual. I am eager to contribute my
           passion for technology, creativity, and user-centric design to
-          meaningful projects that make a lasting impact. Let&apos;s collaborate
-          and create something extraordinary together.
+          meaningful projects that make a lasting impact.
         </Text>
       </Box>
     </Box>

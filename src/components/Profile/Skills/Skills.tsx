@@ -10,7 +10,7 @@ import {
 import RadarChart from "@/components/Charts/RadarChart";
 import BarChart from "@/components/Charts/BarChart";
 import { RadarOptions, BarOptions } from "./data/chartOptions";
-import AttributeModal from "./AttributeModal/AttributeModal";
+// import AttributeModal from "./AttributeModal/AttributeModal";
 import Image from "next/image";
 import styled from "styled-components";
 
@@ -24,11 +24,13 @@ const Skills = () => {
     labels: [
       "React",
       "TypeScript",
-      "CSS",
-      "AWS",
-      "Next",
       "JavaScript",
+      "CSS",
+      "React Native",
+      "Serverless",
+      "NextJS",
       "GraphQL",
+      "Unit Testing",
       "HTML",
     ],
     datasets: [
@@ -43,23 +45,23 @@ const Skills = () => {
           "rgba(45, 212, 191, 1)"
         ),
         color: "#888",
-        data: [9, 8, 10, 4, 7, 7, 5, 10],
+        data: [8, 8, 7, 10, 7, 7, 7, 7, 7, 10],
       },
     ],
   };
 
   const BarData = {
     labels: [
-      "HTML5",
-      "CSS3 / SASS / SCSS",
+      "HTML",
+      "CSS",
       "React",
       "TypeScript",
-      "Next",
-      "JavaScript (ES6)",
-      "Jest / React Testing Library",
-      "GraphQL / Apollo",
-      "AWS / DynamoDB",
       "React Native",
+      "NextJS",
+      "JavaScript",
+      "Unit Testing",
+      "GraphQL",
+      "Serverless",
     ],
     datasets: [
       {
@@ -75,7 +77,7 @@ const Skills = () => {
         color: "#888",
         categoryPercentage: 0.5,
         barPercentage: 1.0,
-        data: [10, 10, 9, 8, 7, 7, 5, 5, 4, 3],
+        data: [10, 10, 8, 8, 7, 7, 7, 7, 6, 5],
       },
     ],
   };
@@ -118,7 +120,7 @@ const Skills = () => {
             <Box>
               <BarChart options={BarOptions} data={BarData} height={210} />
             </Box>
-            <AttributeModal />
+            {/* <AttributeModal /> */}
           </Flex>
         </Box>
       </SimpleGrid>
