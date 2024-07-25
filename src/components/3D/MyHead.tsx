@@ -43,16 +43,6 @@ const MyHead = ({}: MyHeadProps) => {
     }
   }, [renderer]);
 
-  const scaleMultiplier = useBreakpointValue({
-    base: 1.25,
-    sm: 0.65,
-    md: 1.5,
-    lg: 0.65,
-    xl: 0.5,
-  });
-
-  console.log("multiplier: ", scaleMultiplier);
-
   /* eslint-disable react-hooks/exhaustive-deps */
   useEffect(() => {
     const { current: container } = refContainer;
@@ -72,10 +62,31 @@ const MyHead = ({}: MyHeadProps) => {
       container.appendChild(renderer.domElement);
       setRenderer(renderer);
 
-      // 640 -> 240
-      // 8 -> 6
-      const scale = (scH * 0.0025 + 0.6) * scaleMultiplier!;
-      console.log("scale:", scale);
+      let scaleMultiplier;
+
+      switch (scW) {
+        case 300:
+          scaleMultiplier = 1.25;
+          break;
+        case 380:
+          scaleMultiplier = 1;
+          break;
+        case 500:
+          scaleMultiplier = 1;
+          break;
+        case 960:
+          scaleMultiplier = 0.65;
+          break;
+        default:
+          scaleMultiplier = 1; // Default value if none of the cases match
+      }
+
+      // console.log("scaleMultiplier: ", scaleMultiplier);
+
+      const scale = (scH * 0.0025 + 0.6) * scaleMultiplier;
+
+      // console.log("scale:", scale);
+      // console.log("scW:", scW, "scH:", scH);
 
       const camera = new THREE.OrthographicCamera(
         -scale,
@@ -197,7 +208,7 @@ const MyHead = ({}: MyHeadProps) => {
         renderer.dispose();
       };
     }
-  }, [scaleMultiplier]);
+  }, []);
 
   useEffect(() => {
     window.addEventListener("resize", handleWindowResize, false);
