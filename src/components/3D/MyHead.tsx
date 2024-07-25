@@ -7,7 +7,6 @@ import {
   useCallback,
   MutableRefObject,
 } from "react";
-import { useBreakpointValue } from "@chakra-ui/react";
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 import { loadGLTFModel } from "../../lib/model";
@@ -156,6 +155,7 @@ const MyHead = ({}: MyHeadProps) => {
       const controls = new OrbitControls(camera, renderer.domElement);
       // controls.autoRotate = true;
       controls.enableZoom = false;
+      controls.enablePan = false;
 
       // Step 1: Initialize variables
       let rotateDirection = 1; // 1 for clockwise, -1 for counter-clockwise
@@ -166,7 +166,7 @@ const MyHead = ({}: MyHeadProps) => {
       controls.target = target;
       setControls(controls);
 
-      loadGLTFModel(scene, "/3D/Head2024.glb", {
+      loadGLTFModel(scene, "/3D/Head2024_2.glb", {
         receiveShadow: true,
         castShadow: true,
       }).then(() => {
