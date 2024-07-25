@@ -22,11 +22,11 @@ export const MyHeadContainer = forwardRef(
   ({ children }: MyHeadContainerProps, ref: React.Ref<HTMLDivElement>) => (
     <Box
       ref={ref}
-      className="my-head"
+      className="my-head z-0"
       m="auto"
       mt={["0px", "0px", "-100px", "-125px"]}
       mb={["20px", "30px", "-30px"]}
-      ml={["0px", "0px", "0px", "-290px"]}
+      ml={["auto", "auto", "auto", "-290px"]}
       w={[300, 380, 500, 960]}
       h={[300, 380, 500, 960]}
       position="relative"

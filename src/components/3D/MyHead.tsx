@@ -17,9 +17,9 @@ interface MyHeadProps {
   children?: React.ReactNode;
 }
 
-function easeOutCirc(x: number) {
-  return Math.sqrt(1 - Math.pow(x - 1, 4));
-}
+// function easeOutCirc(x: number) {
+//   return Math.sqrt(1 - Math.pow(x - 1, 4));
+// }
 
 const MyHead = ({}: MyHeadProps) => {
   const refContainer = useRef() as MutableRefObject<HTMLDivElement | null>;
@@ -44,14 +44,14 @@ const MyHead = ({}: MyHeadProps) => {
   }, [renderer]);
 
   const scaleMultiplier = useBreakpointValue({
-    base: 0.7,
+    base: 1.25,
     sm: 0.65,
     md: 1.5,
     lg: 0.65,
     xl: 0.5,
   });
 
-  console.log(scaleMultiplier);
+  console.log("multiplier: ", scaleMultiplier);
 
   /* eslint-disable react-hooks/exhaustive-deps */
   useEffect(() => {
@@ -144,6 +144,7 @@ const MyHead = ({}: MyHeadProps) => {
 
       const controls = new OrbitControls(camera, renderer.domElement);
       // controls.autoRotate = true;
+      controls.enableZoom = false;
 
       // Step 1: Initialize variables
       let rotateDirection = 1; // 1 for clockwise, -1 for counter-clockwise
