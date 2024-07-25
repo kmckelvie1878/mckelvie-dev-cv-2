@@ -7,6 +7,7 @@ import {
   useCallback,
   MutableRefObject,
 } from "react";
+import { useBreakpointValue } from "@chakra-ui/react";
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 import { loadGLTFModel } from "../../lib/model";
@@ -27,11 +28,7 @@ const MyHead = ({}: MyHeadProps) => {
   const [_camera, setCamera] = useState<THREE.Camera | null>(null);
   const [target] = useState(new THREE.Vector3(-0.15, -0.2, 0));
   const [initialCameraPosition] = useState(
-    new THREE.Vector3(
-      20 * Math.sin(0.2 * Math.PI),
-      10,
-      20 * Math.sin(0.2 * Math.PI)
-    )
+    new THREE.Vector3(0, 10, 20 * Math.sin(0.2 * Math.PI))
   );
   const [scene] = useState(new THREE.Scene());
   const [_controls, setControls] = useState<OrbitControls | null>(null);
@@ -45,6 +42,16 @@ const MyHead = ({}: MyHeadProps) => {
       renderer.setSize(scW, scH);
     }
   }, [renderer]);
+
+  const scaleMultiplier = useBreakpointValue({
+    base: 0.7,
+    sm: 0.65,
+    md: 1.5,
+    lg: 0.65,
+    xl: 0.5,
+  });
+
+  console.log(scaleMultiplier);
 
   /* eslint-disable react-hooks/exhaustive-deps */
   useEffect(() => {
@@ -67,7 +74,9 @@ const MyHead = ({}: MyHeadProps) => {
 
       // 640 -> 240
       // 8 -> 6
-      const scale = scH * 0.0025 + 0.6;
+      const scale = (scH * 0.0025 + 0.6) * scaleMultiplier!;
+      console.log("scale:", scale);
+
       const camera = new THREE.OrthographicCamera(
         -scale,
         scale,
@@ -134,11 +143,18 @@ const MyHead = ({}: MyHeadProps) => {
       renderer.toneMappingExposure = 2.3;
 
       const controls = new OrbitControls(camera, renderer.domElement);
-      controls.autoRotate = true;
+      // controls.autoRotate = true;
+
+      // Step 1: Initialize variables
+      let rotateDirection = 1; // 1 for clockwise, -1 for counter-clockwise
+      let currentAngle = 0; // Current rotation angle in radians
+      const rotationSpeed = 0.0025; // Speed of rotation
+      const maxAngle = Math.PI / 2.6; // 90 degrees in radians
+
       controls.target = target;
       setControls(controls);
 
-      loadGLTFModel(scene, "/3D/head-compressed.glb", {
+      loadGLTFModel(scene, "/3D/Head2024.glb", {
         receiveShadow: true,
         castShadow: true,
       }).then(() => {
@@ -150,23 +166,25 @@ const MyHead = ({}: MyHeadProps) => {
       let frame = 0;
       const animate = () => {
         req = requestAnimationFrame(animate);
-      
-        frame = frame <= 100 ? frame + 1 : frame;
-      
-        if (frame <= 100) {
-          const p = initialCameraPosition;
-          const rotSpeed = -easeOutCirc(frame / 120) * Math.PI * 20;
-      
-          camera.position.y = 2;
-          camera.position.x = p.x * Math.cos(rotSpeed) + p.z * Math.sin(rotSpeed);
-          camera.position.z = p.z * Math.cos(rotSpeed) - p.x * Math.sin(rotSpeed);
-          camera.lookAt(target);
-      
-          // The spotlights' positions are set during initialization, so they remain stationary.
-        } else {
-          controls.update();
+
+        // Adjust rotation based on direction
+        currentAngle += rotationSpeed * rotateDirection;
+
+        // Check if the current angle has reached 90 degrees or -90 degrees (PI/2 or -PI/2 radians)
+        // Then reverse the direction to simulate a 180-degree rotation back and forth
+        if (currentAngle >= maxAngle || currentAngle <= -maxAngle) {
+          rotateDirection *= -1; // Reverse the direction
         }
-      
+
+        // Calculate new position based on the current angle
+        const p = initialCameraPosition;
+        camera.position.y = 2; // Adjust the Y position as needed
+        camera.position.x =
+          p.x * Math.cos(currentAngle) + p.z * Math.sin(currentAngle);
+        camera.position.z =
+          p.z * Math.cos(currentAngle) - p.x * Math.sin(currentAngle);
+        camera.lookAt(target); // Ensure the camera always looks at the target
+
         renderer.render(scene, camera);
       };
 
@@ -178,7 +196,7 @@ const MyHead = ({}: MyHeadProps) => {
         renderer.dispose();
       };
     }
-  }, []);
+  }, [scaleMultiplier]);
 
   useEffect(() => {
     window.addEventListener("resize", handleWindowResize, false);

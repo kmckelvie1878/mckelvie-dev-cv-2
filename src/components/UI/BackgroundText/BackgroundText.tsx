@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { motion } from "framer-motion";
 import { useEffect, useRef } from "react";
@@ -12,7 +12,7 @@ interface BackgroundTextProps {
 const TextWrapper = styled.div`
   position: relative;
   transform-origin: top center;
-  top: 3rem;
+  top: 5rem;
   letter-spacing: -0.4rem;
   background-image: linear-gradient(to right, #8b5cf6, #2dd4bf);
   color: transparent;
@@ -28,28 +28,37 @@ function BackgroundText({ text, className }: BackgroundTextProps) {
       const element = el.current;
       if (element !== null && element.textContent) {
         if (element.textContent.length > 5) {
-          const margin = element.textContent.length > 10 ? -600 : -100 * (element.textContent.length - 5)
+          const margin =
+            element.textContent.length > 10
+              ? -600
+              : -100 * (element.textContent.length - 5);
           const windowWidth = window.innerWidth;
           const scalableContainerWidth = windowWidth - margin;
           const scalableWidth = element.offsetWidth;
-          element.style.transform = `scale(${scalableContainerWidth / scalableWidth})`;
+          element.style.transform = `scale(${
+            scalableContainerWidth / scalableWidth
+          })`;
         } else {
-          element.style.fontSize = '32vw';
-          element.style.lineHeight = '32vw';
-          element.style.transform = 'scale(1)';
+          element.style.fontSize = "32vw";
+          element.style.lineHeight = "32vw";
+          element.style.transform = "scale(1)";
         }
       }
-    }
-    
+    };
+
     handleResize();
-    window.addEventListener('resize', handleResize, false);
-    return () => window.removeEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize, false);
+    return () => window.removeEventListener("resize", handleResize);
   }, [text]);
 
-
-
   return (
-    <motion.div key={"bg-text"} initial={{opacity: 0}} animate={{opacity: 0.07}} transition={{duration: 1}} className={className}>
+    <motion.div
+      key={"bg-text"}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 0.07 }}
+      transition={{ duration: 1 }}
+      className={className}
+    >
       <TextWrapper ref={el}>{text}</TextWrapper>
     </motion.div>
   );
