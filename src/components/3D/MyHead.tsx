@@ -105,49 +105,49 @@ const MyHead = ({}: MyHeadProps) => {
       // const hemiLight = new THREE.HemisphereLight(0xffeeb1, 0x080820, 4);
       // camera.add(hemiLight);
 
-      // spotLight params
-      const slDistance = 25.0;
-      const slAngle = Math.PI / 4.0;
-      const slPenumbra = 1.0;
-      const slDecay = 1.0;
+      // // spotLight params
+      // const slDistance = 25.0;
+      // const slAngle = Math.PI / 4.0;
+      // const slPenumbra = 1.0;
+      // const slDecay = 1.0;
 
-      const spotLight = new THREE.SpotLight(
-        0x8b5cf6,
-        2.5,
-        slDistance,
-        slAngle,
-        slPenumbra,
-        slDecay
-      );
-      spotLight.position.set(-10, 10, 0);
-      spotLight.target.position.set(0, 0, 0);
-      spotLight.castShadow = true;
-      spotLight.shadow.mapSize.width = 1024; // Adjust shadow map size for better quality
-      spotLight.shadow.mapSize.height = 1024;
-      scene.add(spotLight);
-      scene.add(spotLight.target);
+      // const spotLight = new THREE.SpotLight(
+      //   0x8b5cf6,
+      //   2.5,
+      //   slDistance,
+      //   slAngle,
+      //   slPenumbra,
+      //   slDecay
+      // );
+      // spotLight.position.set(-10, 10, 0);
+      // spotLight.target.position.set(0, 0, 0);
+      // spotLight.castShadow = true;
+      // spotLight.shadow.mapSize.width = 1024; // Adjust shadow map size for better quality
+      // spotLight.shadow.mapSize.height = 1024;
+      // scene.add(spotLight);
+      // scene.add(spotLight.target);
 
-      // spotLight2 params
-      const sl2Distance = 25.0;
-      const sl2Angle = Math.PI / 4.0;
-      const sl2Penumbra = 0.5;
-      const sl2Decay = 1.0;
+      // // spotLight2 params
+      // const sl2Distance = 25.0;
+      // const sl2Angle = Math.PI / 4.0;
+      // const sl2Penumbra = 0.5;
+      // const sl2Decay = 1.0;
 
-      const spotLight2 = new THREE.SpotLight(
-        0x2dd4bf,
-        2.5,
-        sl2Distance,
-        sl2Angle,
-        sl2Penumbra,
-        sl2Decay
-      );
-      spotLight2.position.set(10, 20, 0);
-      spotLight2.target.position.set(0, 0, 0);
-      spotLight2.castShadow = true;
-      spotLight2.shadow.mapSize.width = 1024; // Adjust shadow map size for better quality
-      spotLight2.shadow.mapSize.height = 1024;
-      scene.add(spotLight2);
-      scene.add(spotLight2.target);
+      // const spotLight2 = new THREE.SpotLight(
+      //   0x2dd4bf,
+      //   2.5,
+      //   sl2Distance,
+      //   sl2Angle,
+      //   sl2Penumbra,
+      //   sl2Decay
+      // );
+      // spotLight2.position.set(10, 20, 0);
+      // spotLight2.target.position.set(0, 0, 0);
+      // spotLight2.castShadow = true;
+      // spotLight2.shadow.mapSize.width = 1024; // Adjust shadow map size for better quality
+      // spotLight2.shadow.mapSize.height = 1024;
+      // scene.add(spotLight2);
+      // scene.add(spotLight2.target);
 
       renderer.toneMapping = THREE.ReinhardToneMapping;
       renderer.toneMappingExposure = 2.3;
