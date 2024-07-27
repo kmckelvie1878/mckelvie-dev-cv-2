@@ -1,12 +1,10 @@
 /* eslint-disable no-unused-vars */
 import Logo from "../../UI/Logo/Logo";
-import NextLink from "next/link";
+import Link from "next/link";
 import {
   Container,
   Box,
-  Link,
   Stack,
-  Heading,
   Flex,
   Menu,
   MenuItem,
@@ -14,7 +12,6 @@ import {
   MenuButton,
   IconButton,
   useColorModeValue,
-  ChakraProps,
 } from "@chakra-ui/react";
 import { HamburgerIcon } from "@chakra-ui/icons";
 import ThemeToggle from "../../UI/ThemeToggle/ThemeToggle";
@@ -28,18 +25,15 @@ interface LinkItemProps {
 
 const LinkItem = ({ href, path, children, ...props }: LinkItemProps) => {
   const active = path === href;
-  const inactiveColor = useColorModeValue("gray200", "whiteAlpha.900");
   return (
-    <NextLink href={href}>
-      <Link
-        p={2}
-        bg={active ? "glassTeal" : undefined}
-        color={active ? "#202023" : inactiveColor}
-        {...props}
-      >
-        {children}
-      </Link>
-    </NextLink>
+    <Link
+      href={href}
+      className={`${active ? "text-teal-400" : ""} hover:underline`}
+      suppressHydrationWarning
+      {...props}
+    >
+      {children}
+    </Link>
   );
 };
 
@@ -73,30 +67,30 @@ const Navbar = (props: any) => {
           flexGrow={1}
           mt={{ base: 4, md: 0 }}
         >
-          {/* <LinkItem href="/portfolio" path={path}>
+          <LinkItem href="/portfolio" path={path}>
             Portfolio
-          </LinkItem> */}
+          </LinkItem>
         </Stack>
         <Box flex={1} display="flex" justifyContent="flex-end">
           <ThemeToggle />
-          {/* <Box ml={2} display={{ base: "inline-block", md: "none" }}>
+          <Box ml={2} display={{ base: "inline-block", md: "none" }}>
             <Menu>
               <MenuButton
                 as={IconButton}
                 icon={<HamburgerIcon />}
                 variant="outline"
-                aria-label="Options"
+                aria-label="Menu"
               />
               <MenuList>
-                <NextLink href="/" passHref>
-                  <MenuItem as={Link}>About</MenuItem>
-                </NextLink>
-                <NextLink href="/portfolio" passHref>
-                  <MenuItem as={Link}>Portfolio</MenuItem>
-                </NextLink>
+                <LinkItem href="/" path={path}>
+                  <MenuItem>Home</MenuItem>
+                </LinkItem>
+                <LinkItem href="/portfolio" path={path}>
+                  <MenuItem>Portfolio</MenuItem>
+                </LinkItem>
               </MenuList>
             </Menu>
-          </Box> */}
+          </Box>
         </Box>
       </Container>
     </Box>

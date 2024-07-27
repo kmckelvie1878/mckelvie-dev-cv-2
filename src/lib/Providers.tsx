@@ -1,7 +1,7 @@
 "use client";
 
 import {
-  ColorModeScript,
+  // ColorModeScript,
   ChakraProvider,
   Container,
   Box,
@@ -12,17 +12,19 @@ import Navbar from "@/components/Navigation/NavBar";
 import BackgroundText from "@/components/UI/BackgroundText/BackgroundText";
 import Footer from "@/components/UI/Footer/Footer";
 import StyledComponentsRegistry from "../app/registry";
+import { usePathname } from "next/navigation";
 
 interface ProvidersProps {
   children: React.ReactNode;
 }
 
 export default function Providers({ children }: ProvidersProps) {
+  const pathname = usePathname();
   return (
     <StyledComponentsRegistry>
       <ChakraProvider theme={theme}>
         {/* <ColorModeScript initialColorMode={theme.config.initialColorMode} /> */}
-        <Navbar />
+        <Navbar path={pathname} />
         <BackgroundText text="McKelvie" />
         <Box
           as="main"
