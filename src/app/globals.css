@@ -29,16 +29,17 @@ body {
     rgb(var(--background-start-rgb));
 }
 
-
 @layer components {
+  .page-title {
+    font-weight: 800;
+    letter-spacing: -6px;
+  }
   .display-first-name {
     z-index: 2;
   }
   .display-last-name {
     transform: translateY(-1.75rem);
     z-index: 1;
-    font-weight: 800;
-    letter-spacing: -6px;
   }
   .display-role {
     transform: translateY(-1.75rem);

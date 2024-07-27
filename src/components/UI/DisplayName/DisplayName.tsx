@@ -21,7 +21,7 @@ const DisplayName = ({ firstName, lastName, jobTitle }: DisplayNameProps) => {
           {firstName}
         </span>
         <span
-          className={`display-last-name text-6xl md:text-8xl font-bold ${useColorModeValue(
+          className={`page-title display-last-name text-6xl md:text-8xl font-bold ${useColorModeValue(
             "text-violet-500",
             "text-teal-400"
           )}`}
