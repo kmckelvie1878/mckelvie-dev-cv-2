@@ -1,6 +1,6 @@
 "use client";
 
-import { Box, Heading, Text, useColorModeValue } from "@chakra-ui/react";
+import { Box, Heading, useColorModeValue } from "@chakra-ui/react";
 import Carousel from "@/components/UI/Carousel/Carousel";
 
 const SiteInfo = () => {

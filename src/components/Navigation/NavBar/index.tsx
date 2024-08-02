@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import Logo from "../../UI/Logo/Logo";
 import Link from "next/link";
 import {

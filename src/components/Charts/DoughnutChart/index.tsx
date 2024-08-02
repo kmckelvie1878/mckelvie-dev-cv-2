@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { Doughnut } from "react-chartjs-2";
 import { Chart, ArcElement } from "chart.js";
@@ -30,7 +30,7 @@ const AttributeLabel = styled.span`
   text-align: center;
   line-height: 20px;
   margin-bottom: -1rem;
-`
+`;
 
 const Score = styled(Text)`
   position: absolute;
@@ -53,14 +53,9 @@ const Score = styled(Text)`
     font-size: 24px;
     bottom: 0.75rem;
   }
-
 `;
 
-
-const DoughnutChart = ({score, label}: DoughnutChartProps) => {
-
-
-  
+const DoughnutChart = ({ score, label }: DoughnutChartProps) => {
   const data = {
     datasets: [
       {
