@@ -10,7 +10,6 @@ import {
   Divider,
   useColorMode,
 } from "@chakra-ui/react";
-import { useState } from "react";
 
 import {
   IoBookOutline,
@@ -22,18 +21,20 @@ interface EducationHistoryProps {
   educationHistoryData: any;
 }
 
-
-const Education = ({educationHistoryData}: EducationHistoryProps) => {
+const Education = ({ educationHistoryData }: EducationHistoryProps) => {
   const { colorMode } = useColorMode();
-  
-  const sortedEducationHistoryData = educationHistoryData.educationHistoryData.sort(
-    (
-      a: { startDate: string | number | Date },
-      b: { startDate: string | number | Date }
-    ) => {
-      return new Date(b.startDate).getTime() - new Date(a.startDate).getTime();
-    }
-  );
+
+  const sortedEducationHistoryData =
+    educationHistoryData.educationHistoryData.sort(
+      (
+        a: { startDate: string | number | Date },
+        b: { startDate: string | number | Date }
+      ) => {
+        return (
+          new Date(b.startDate).getTime() - new Date(a.startDate).getTime()
+        );
+      }
+    );
 
   // format date
   const formatDate = (date: string) => {
@@ -69,30 +70,43 @@ const Education = ({educationHistoryData}: EducationHistoryProps) => {
               <Box className="">
                 <Text fontSize={18} fontWeight={"bold"} mb={2}>
                   {education.school}{" "}
-                  <Badge colorScheme={"twViolet"}>{formatDate(education.startDate)} - {formatDate(education.endDate)}</Badge>
+                  <Badge colorScheme={"twViolet"}>
+                    {formatDate(education.startDate)} -{" "}
+                    {formatDate(education.endDate)}
+                  </Badge>
                 </Text>
                 {education.field && (
                   <Text>
                     <Icon
                       as={IoBookOutline}
                       mr={1}
-                      color={colorMode === 'light' ? "#8b5cf6" : "#2dd4bf"}
+                      color={colorMode === "light" ? "#8b5cf6" : "#2dd4bf"}
                     />
                     {education.field}
                   </Text>
                 )}
                 <Text>
-                  <Icon as={IoSchoolOutline} mr={1} color={colorMode === 'light' ? "#8b5cf6" : "#2dd4bf"} />
+                  <Icon
+                    as={IoSchoolOutline}
+                    mr={1}
+                    color={colorMode === "light" ? "#8b5cf6" : "#2dd4bf"}
+                  />
                   {education.degree}{" "}
                   {education.grade && `with ${education.grade}`}
                 </Text>
                 <Text>
-                  <Icon as={IoLocationOutline} mr={1} color={colorMode === 'light' ? "#8b5cf6" : "#2dd4bf"} />
+                  <Icon
+                    as={IoLocationOutline}
+                    mr={1}
+                    color={colorMode === "light" ? "#8b5cf6" : "#2dd4bf"}
+                  />
                   {education.location}
                 </Text>
               </Box>
             </Box>
-            {index !== educationHistoryData.length - 1 && <Divider mt={3} mb={3} />}
+            {index !== educationHistoryData.length - 1 && (
+              <Divider mt={3} mb={3} />
+            )}
           </Box>
         ))}
       </Box>

@@ -1,5 +1,3 @@
-"use client";
-
 import { SimpleGrid } from "@chakra-ui/react";
 import Education from "@/components/Profile/Education/Education";
 import SiteInfo from "@/components/Profile/SiteInfo/SiteInfo";
